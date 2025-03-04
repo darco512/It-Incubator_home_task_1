@@ -21,13 +21,13 @@ const videoController = {
     createVideo (req: Request, res: Response) {
         const title = req.body.title
         const author = req.body.author
-        const availableResolution = req.body.availableResolution
+        const availableResolutions = req.body.availableResolutions
         const errors :OutputErrorsType = {
             errorsMessages : []
         }
         tittleFieldValidator(title, errors)
         authorFieldValidator(author, errors)
-        availableResolutionFieldValidator(availableResolution, errors)
+        availableResolutionFieldValidator(availableResolutions, errors)
 
         if (errors.errorsMessages.length) { // если есть ошибки - отправляем ошибки
             res
@@ -45,7 +45,7 @@ const videoController = {
             minAgeRestriction: null,
             createdAt: new Date().toISOString(),
             publicationDate: new Date().toISOString(),
-            availableResolution: req.body.availableResolution,
+            availableResolutions: req.body.availableResolutions,
         }
         db.videos = [...db.videos, newVideo]
 
@@ -78,14 +78,14 @@ const videoController = {
         const author = req.body.author
         const canBeDownloaded = req.body.canBeDownloaded
         const minAgeRestriction = req.body.minAgeRestriction
-        const availableResolution = req.body.availableResolution
+        const availableResolutions = req.body.availableResolutions
         const errors :OutputErrorsType = {
             errorsMessages : []
         }
 
         tittleFieldValidator(title, errors)
         authorFieldValidator(author, errors)
-        availableResolutionFieldValidator(availableResolution, errors)
+        availableResolutionFieldValidator(availableResolutions, errors)
         ageRestrictionFieldValidator(minAgeRestriction, errors)
         canBeDownloadedFieldValidator(canBeDownloaded,errors)
 
@@ -103,7 +103,7 @@ const videoController = {
         foundVideo.canBeDownloaded = canBeDownloaded
         foundVideo.minAgeRestriction = minAgeRestriction
         foundVideo.publicationDate = new Date().toISOString()
-        foundVideo.availableResolution = availableResolution
+        foundVideo.availableResolutions = availableResolutions
 
         res
             .status(204)

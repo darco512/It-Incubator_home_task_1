@@ -39,9 +39,9 @@ export const authorFieldValidator = (author: string, errors: OutputErrorsType) =
     }
 }
 
-export const availableResolutionFieldValidator = (availableResolution: Resolutions[], errors: OutputErrorsType) => {
-    if (!Array.isArray(availableResolution)
-        || availableResolution.find(p => !Resolutions[p])
+export const availableResolutionFieldValidator = (availableResolutions: Resolutions[], errors: OutputErrorsType) => {
+    if (!Array.isArray(availableResolutions)
+        || availableResolutions.find(p => !Resolutions[p])
     ) {
         errors.errorsMessages.push({
             message: 'At least one resolution should be added', field: 'availableResolution'

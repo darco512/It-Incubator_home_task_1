@@ -109,7 +109,7 @@ const videoController = {
         foundVideo.author = author
         foundVideo.canBeDownloaded = canBeDownloaded
         foundVideo.minAgeRestriction = minAgeRestriction
-        foundVideo.publicationDate = new Date().toISOString()
+        foundVideo.publicationDate = publicationDate
         foundVideo.availableResolutions = availableResolutions
 
         res
@@ -123,7 +123,7 @@ const videoController = {
             return
         }
 
-        db.videos = db.videos.filter(v => v.id !== req.params.id)
+        db.videos = db.videos.filter(v => v.id !== +req.params.id)
         res.sendStatus(204)
     }
 }

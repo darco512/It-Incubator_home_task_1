@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.status(200).json({version: '1.0'})
 })
 
-app.delete('/__test__/data', (req, res) => {
+app.delete('/testing/all-data', (req, res) => {
     db.videos = [];
     res.sendStatus(204);
 })

@@ -4,13 +4,13 @@
   "name": "home-task",
   "builds": [
     {
-      "src": "src/app.js",
+      "src": ";/src/app.js",
       "use": "@vercel/node" }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/app.js" }
+      "dest": "/src/app.js" }
   ]
 
 }

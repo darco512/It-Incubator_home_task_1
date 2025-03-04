@@ -24,17 +24,17 @@ export const authorFieldValidator = (author: string, errors: OutputErrorsType) =
 
     if(!author){
         errors.errorsMessages.push({
-            message: 'No title', field: 'title',
+            message: 'No title', field: 'author',
         })
     }
 
     if(author && author.trim().length > 20) {
-        errors.errorsMessages.push({message:'More then 20 symbols', field: 'title'})
+        errors.errorsMessages.push({message:'More then 20 symbols', field: 'author'})
     }
 
     if(author && author.trim().length < 1) {
         errors.errorsMessages.push({
-            message: 'No title', field: 'title',
+            message: 'No title', field: 'author',
         })
     }
 }
@@ -58,9 +58,9 @@ export const ageRestrictionFieldValidator = (minAgeRestriction: number, errors: 
 }
 
 export const canBeDownloadedFieldValidator = (canBeDownloaded: boolean, errors: OutputErrorsType) => {
-    if (!canBeDownloaded) {
+    if (typeof canBeDownloaded === "boolean") {
         errors.errorsMessages.push({
-            message: 'No information', field: 'canBeDownloaded'
+            message: 'must be a boolean', field: 'canBeDownloaded'
         })
     }
 }

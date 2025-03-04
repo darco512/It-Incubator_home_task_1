@@ -113,7 +113,7 @@ const videoController = {
         foundVideo.availableResolutions = availableResolutions
 
         res
-            .status(204)
+            .sendStatus(204)
     },
 
     deleteVideo (req: Request, res: Response) {
@@ -124,7 +124,7 @@ const videoController = {
         }
 
         db.videos = db.videos.filter(v => v.id !== req.params.id)
-        res.status(204)
+        res.sendStatus(204)
     }
 }
 

@@ -36,6 +36,12 @@ const videoController = {
             return
         }
 
+        function addDays(date: Date, days: number): Date {
+            const result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+
         const newVideo: OutputVideoType = {
             ...req.body,
             id: Date.now() + Math.random(),
@@ -44,7 +50,7 @@ const videoController = {
             canBeDownloaded: false,
             minAgeRestriction: null,
             createdAt: new Date().toISOString(),
-            publicationDate: new Date().toISOString(),
+            publicationDate: addDays(new Date(), 1).toISOString(),
             availableResolutions: req.body.availableResolutions,
         }
         db.videos = [...db.videos, newVideo]

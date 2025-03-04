@@ -44,7 +44,7 @@ export const availableResolutionFieldValidator = (availableResolutions: Resoluti
         || availableResolutions.find(p => !Resolutions[p])
     ) {
         errors.errorsMessages.push({
-            message: 'At least one resolution should be added', field: 'availableResolution'
+            message: 'At least one resolution should be added', field: 'availableResolutions'
         })
     }
 }
@@ -58,7 +58,7 @@ export const ageRestrictionFieldValidator = (minAgeRestriction: number, errors: 
 }
 
 export const canBeDownloadedFieldValidator = (canBeDownloaded: boolean, errors: OutputErrorsType) => {
-    if (typeof canBeDownloaded === "boolean") {
+    if (typeof canBeDownloaded !== "boolean") {
         errors.errorsMessages.push({
             message: 'must be a boolean', field: 'canBeDownloaded'
         })

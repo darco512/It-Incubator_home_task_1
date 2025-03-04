@@ -1,0 +1,5 @@
+/nodes_modules/
+dist/
+.idea
+.env
+covarage

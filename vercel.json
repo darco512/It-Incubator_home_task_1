@@ -1,0 +1,22 @@
+
+{
+
+  "version": 2,
+
+  "name": "home-task",
+
+  "builds": [
+
+    {
+      "src": "src/index.js",
+      "use": "@vercel/node" }
+  ],
+
+  "routes": [
+
+    {
+      "src": "/(.*)",
+      "dest": "src/index.js" }
+  ]
+
+}

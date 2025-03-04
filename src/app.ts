@@ -3,7 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import {SETTINGS} from './settings'
 import {videosRouter} from './videos'
-import {db} from "./db/db";
+import {setDB} from "./db/db";
 
 export const app = express() // создать приложение
 app.use(express.json()) // создание свойств-объектов body во всех реквестах
@@ -11,11 +11,11 @@ app.use(cors()) // разрешить любым фронтам делать з�
 
 app.get('/', (req, res) => {
     // эндпоинт, который будет показывать на верселе какая версия бэкэнда сейчас залита
-    res.status(200).json({version: '2.0'})
+    res.status(200).json({version: 'final'})
 })
 
 app.delete('/testing/all-data', (req, res) => {
-    db.videos = [];
+    setDB();
     res.sendStatus(204);
 })
 

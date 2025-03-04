@@ -37,5 +37,6 @@ export type UpdateVideoType = {
     author: string
     canBeDownloaded: boolean
     minAgeRestriction: number | null
+    publicationDate: string
     availableResolutions: Resolutions[]
 }

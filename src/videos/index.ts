@@ -6,7 +6,7 @@ import {OutputErrorsType} from "../input-output-types/output-errors-type";
 import {
     ageRestrictionFieldValidator,
     authorFieldValidator,
-    availableResolutionFieldValidator, canBeDownloadedFieldValidator,
+    availableResolutionFieldValidator, canBeDownloadedFieldValidator, dateFormatValidator,
     tittleFieldValidator
 } from "../input-output-types/input-validation";
 
@@ -85,6 +85,7 @@ const videoController = {
         const canBeDownloaded = req.body.canBeDownloaded
         const minAgeRestriction = req.body.minAgeRestriction
         const availableResolutions = req.body.availableResolutions
+        const publicationDate = req.body.publicationDate
         const errors :OutputErrorsType = {
             errorsMessages : []
         }
@@ -94,7 +95,7 @@ const videoController = {
         availableResolutionFieldValidator(availableResolutions, errors)
         ageRestrictionFieldValidator(minAgeRestriction, errors)
         canBeDownloadedFieldValidator(canBeDownloaded,errors)
-
+        dateFormatValidator(publicationDate, errors)
 
         if (errors.errorsMessages.length) { // если есть ошибки - отправляем ошибки
             res

@@ -64,3 +64,12 @@ export const canBeDownloadedFieldValidator = (canBeDownloaded: boolean, errors: 
         })
     }
 }
+
+export const dateFormatValidator = (date:string, errors: OutputErrorsType) => {
+    const isoDateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z$/;
+    if(!isoDateRegex.test(date)){
+        errors.errorsMessages.push({
+            message: 'date in wrong format', field: 'publicationDate'
+        })
+    }
+}
